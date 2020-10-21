@@ -10,7 +10,7 @@ greatest_increase_amount = 0
 greatest_increase_month = ""
 greatest_decrease_amount = 0
 greatest_decrease_month = ""
-previous_amount = 0
+previous_amount = 867884
 previous_change_amount = 0
 total_change_amount = 0
 
@@ -28,6 +28,8 @@ with open(input_path) as csv_file: # open file
 
         change_amount = amount - previous_amount
 
+        total_change_amount = change_amount + total_change_amount
+
         # finding greatest increase/decrease month/amount
         if change_amount > 0 and change_amount > greatest_increase_amount:
             greatest_increase_month = month
@@ -39,7 +41,7 @@ with open(input_path) as csv_file: # open file
         previous_amount = amount
 
 # findig the change amount average
-change_amount_average = (greatest_increase_amount + greatest_decrease_amount) / total_months
+change_amount_average = change_amount_average = total_change_amount / (total_months - 1)
 
 output_path = os.path.join("analysis", "pybank_results.txt") # create output file path
 
@@ -50,7 +52,7 @@ Financial Analysis
 ----------------------------
 Total Months: {total_months}
 Total: ${net_total_amount}
-Average  Change: ${change_amount_average}
+Average  Change: ${change_amount_average:.2f}
 Greatest Increase in Profits: {greatest_increase_month} (${greatest_increase_amount})
 Greatest Decrease in Profits: {greatest_decrease_month} (${greatest_decrease_amount})
 """
