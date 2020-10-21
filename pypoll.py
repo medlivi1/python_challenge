@@ -37,19 +37,19 @@ with open(input_path) as csv_file: # open file
             candidates[candidate] = candidate_vote
 
 # finding the candidate winner
-khan_votes_percentage = round(candidates["Khan"] * 100 / total_votes, 3)
+khan_votes_percentage = candidates["Khan"] * 100 / total_votes
 if khan_votes_percentage > winner_percentage:
     winner_candidate = "Khan"
     winner_percentage = khan_votes_percentage
-correy_votes_percentage = round(candidates["Correy"] / total_votes * 100, 3)
+correy_votes_percentage = candidates["Correy"] / total_votes * 100
 if correy_votes_percentage > winner_percentage:
     winner_candidate = "Correy"
     winner_percentage = correy_votes_percentage
-li_votes_percentage = round(candidates["Li"] / total_votes * 100,3)
+li_votes_percentage = candidates["Li"] / total_votes * 100
 if li_votes_percentage > winner_percentage:
     winner_candidate = "Li"
     winner_percentage = li_votes_percentage
-tooley_votes_percentage = round(candidates["O'Tooley"] / total_votes * 100, 3)
+tooley_votes_percentage = candidates["O'Tooley"] / total_votes * 100
 if tooley_votes_percentage > winner_percentage:
     winner_candidate = "O'Tooley"
     winner_percentage = tooley_votes_percentage
@@ -63,10 +63,10 @@ Election Results
 -------------------------
 Total Votes: {total_votes}
 -------------------------
-Khan: {khan_votes_percentage}% ({candidates["Khan"]})
-Correy: {correy_votes_percentage}% ({candidates["Correy"]})
-Li: {li_votes_percentage}% ({candidates["Li"]})
-O'Tooley: {tooley_votes_percentage}% ({candidates["O'Tooley"]})
+Khan: {khan_votes_percentage:.3f}% ({candidates["Khan"]})
+Correy: {correy_votes_percentage:.3f}% ({candidates["Correy"]})
+Li: {li_votes_percentage:.3f}% ({candidates["Li"]})
+O'Tooley: {tooley_votes_percentage:.3f}% ({candidates["O'Tooley"]})
 -------------------------
 Winner: {winner_candidate}
 -------------------------
